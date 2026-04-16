@@ -143,6 +143,7 @@ PostgreSQL,database,Trust authentication for local connections,psql -U postgres,
 Prometheus,monitoring,Metrics endpoint exposed on public internet,/metrics,LOW,Infrastructure fingerprinting and metric exposure,https://prometheus.io/docs/operating/security/
 Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Internal metrics and target disclosure,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
+Proxmox VE,virtualization,Default root login over TLS,/api2/json/version,HIGH,Hypervisor takeover,https://pve.proxmox.com/wiki/User_Management
 RabbitMQ,database,Management UI with default guest/guest,:15672/,HIGH,Message queue admin access,https://www.rabbitmq.com/access-control.html
 Rancher,container,Default admin:admin setup page,/dashboard/auth/login,CRITICAL,Multi-cluster takeover,https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade
 Redis Commander,database,Exposed web UI without auth,/apiv2/connections,HIGH,Redis data browsing and modification,https://github.com/joeferner/redis-commander
