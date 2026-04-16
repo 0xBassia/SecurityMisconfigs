@@ -67,6 +67,7 @@ GCP Cloud Storage,cloud,Bucket set to allUsers read,gsutil ls gs://bucket-name,C
 Gerrit Code Review,version-control,Anonymous user can browse projects,/projects/,MEDIUM,Source code metadata disclosure,https://gerrit-review.googlesource.com/Documentation/config-gerrit.html
 GitLab,ci-cd,Public registration enabled by default,/users/sign_up,HIGH,Internal repository access,https://docs.gitlab.com/ee/administration/settings/sign_up_restrictions.html
 GitLab,ci-cd,Snippets publicly accessible,/explore/snippets,MEDIUM,Code and credential leak,https://docs.gitlab.com/ee/user/snippets.html
+Gitbook,cms,Setup wizard accessible post-install,/install,MEDIUM,Admin account creation,https://docs.gitbook.com/
 Gitea,ci-cd,Public registration enabled by default,/user/sign_up,MEDIUM,Unauthorized repo access on private instances,https://docs.gitea.io/en-us/
 Gitea,version-control,Install page accessible post-setup,/install,HIGH,Configuration overwrite and RCE,https://docs.gitea.com/installation/install-from-binary
 GoCD,ci-cd,Server accessible without login,/go/dashboard,HIGH,Pipeline execution and credential theft,https://docs.gocd.org/current/configuration/security.html
