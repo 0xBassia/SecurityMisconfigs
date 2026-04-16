@@ -84,6 +84,7 @@ Jenkins,ci-cd,Unauthenticated access to job configs,/api/json?tree=jobs[name],HI
 Jira,cms,Dashboard accessible without auth,/secure/Dashboard.jspa,MEDIUM,Project and issue disclosure,https://confluence.atlassian.com/jirasoftwareserver/
 Jira,cms,User picker accessible,/rest/api/2/user/picker?query=admin,MEDIUM,Username enumeration,https://developer.atlassian.com/server/jira/platform/rest-apis/
 Joomla,cms,Debug mode enabled,check response headers,LOW,Path and query disclosure,https://docs.joomla.org/Joomla_3.x_debug
+Jupyter Lab,data-science,Server running with no token,/api/contents/,HIGH,Arbitrary code execution on host,https://jupyter-server.readthedocs.io/en/latest/operators/security.html
 Jupyter Notebook,ci-cd,No token or password required,/tree,CRITICAL,Arbitrary code execution,https://jupyter-notebook.readthedocs.io/en/stable/security.html
 Keycloak,web-framework,Admin console exposed,/admin/,MEDIUM,Identity provider admin access,https://www.keycloak.org/docs/latest/server_admin/
 Kibana,monitoring,No authentication (pre-8.0),/app/kibana,HIGH,Log data and index pattern access,https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html
