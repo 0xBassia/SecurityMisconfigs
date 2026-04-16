@@ -63,6 +63,7 @@ GitLab,ci-cd,Public registration enabled by default,/users/sign_up,HIGH,Internal
 GitLab,ci-cd,Snippets publicly accessible,/explore/snippets,MEDIUM,Code and credential leak,https://docs.gitlab.com/ee/user/snippets.html
 Gitea,ci-cd,Public registration enabled by default,/user/sign_up,MEDIUM,Unauthorized repo access on private instances,https://docs.gitea.io/en-us/
 Gitea,version-control,Install page accessible post-setup,/install,HIGH,Configuration overwrite and RCE,https://docs.gitea.com/installation/install-from-binary
+GoCD,ci-cd,Server accessible without login,/go/dashboard,HIGH,Pipeline execution and credential theft,https://docs.gocd.org/current/configuration/security.html
 Grafana,monitoring,API keys accessible,/api/auth/keys,MEDIUM,API key enumeration,https://grafana.com/docs/grafana/latest/administration/api-keys/
 Grafana,monitoring,Anonymous access enabled,/api/dashboards/home,HIGH,Dashboard data exposure without login,https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/
 Grafana,monitoring,Default admin/admin credentials,/login,HIGH,Full dashboard and datasource access,https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/
