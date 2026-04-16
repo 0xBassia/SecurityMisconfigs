@@ -38,6 +38,7 @@ Cacti,monitoring,Default admin credentials (admin/admin),/cacti/,HIGH,Network mo
 Chef Server,configuration-management,Web UI accessible without TLS,/organizations,MEDIUM,Credential interception and configuration disclosure,https://docs.chef.io/server/
 Cisco Router,network,Default enable password,telnet to device,HIGH,Full device configuration access,https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-121-mainline/46986-default-pw.html
 Cisco Router,network,SNMP default community string (public/private),snmpwalk -v2c -c public host,HIGH,Device config read/write,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
+ClickHouse,database,HTTP interface exposed without auth,/?query=SELECT+1,HIGH,Database read and potential data exfiltration,https://clickhouse.com/docs/en/operations/access-rights
 Confluence,cms,Default OGNL injection paths,/wiki/,CRITICAL,Remote code execution (CVE-2022-26134),https://confluence.atlassian.com/doc/confluence-security-advisory-2022-06-02-1130377146.html
 Consul,ci-cd,HTTP API without ACL tokens,/v1/agent/members,HIGH,Service mesh config access and manipulation,https://developer.hashicorp.com/consul/docs/security
 Consul,infrastructure,UI exposed without ACLs,/ui/,HIGH,Service configuration and secret disclosure,https://developer.hashicorp.com/consul/docs/security/acl
