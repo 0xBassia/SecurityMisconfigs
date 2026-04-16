@@ -147,6 +147,7 @@ Plex Media Server,media,Web UI exposed without claim token,/web/index.html,MEDIU
 Portainer,container,Admin not configured on first boot,/api/users/admin/check,CRITICAL,Container platform takeover,https://docs.portainer.io/start/install-ce/server/docker/linux
 Portainer,container,Initial admin setup without restriction,:9000/,HIGH,Container management access if claimed first,https://docs.portainer.io/start/install-ce
 PostgreSQL,database,Trust authentication for local connections,psql -U postgres,HIGH,Database access without password,https://www.postgresql.org/docs/current/auth-trust.html
+PowerDNS,networking,API exposed without auth,/api/v1/servers,HIGH,DNS zone modification,https://doc.powerdns.com/authoritative/http-api/index.html
 Prometheus,monitoring,Metrics endpoint exposed on public internet,/metrics,LOW,Infrastructure fingerprinting and metric exposure,https://prometheus.io/docs/operating/security/
 Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Internal metrics and target disclosure,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
