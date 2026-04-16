@@ -87,6 +87,7 @@ Jira,cms,User picker accessible,/rest/api/2/user/picker?query=admin,MEDIUM,Usern
 Joomla,cms,Debug mode enabled,check response headers,LOW,Path and query disclosure,https://docs.joomla.org/Joomla_3.x_debug
 Jupyter Notebook,ci-cd,No token or password required,/tree,CRITICAL,Arbitrary code execution,https://jupyter-notebook.readthedocs.io/en/stable/security.html
 Kafka Connect,messaging,REST API exposed without auth,/connectors,HIGH,Sensitive connector configuration disclosure,https://kafka.apache.org/documentation/#connect_security
+Keycloak,identity,Default admin:admin master realm credentials,/auth/admin/,CRITICAL,Full identity provider takeover,https://www.keycloak.org/docs/latest/server_admin/
 Keycloak,web-framework,Admin console exposed,/admin/,MEDIUM,Identity provider admin access,https://www.keycloak.org/docs/latest/server_admin/
 Kibana,monitoring,No authentication (pre-8.0),/app/kibana,HIGH,Log data and index pattern access,https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html
 Kubernetes,container,API server anonymous auth enabled,:6443/api/v1/namespaces,CRITICAL,Cluster resource access,https://kubernetes.io/docs/reference/access-authn-authz/authentication/
