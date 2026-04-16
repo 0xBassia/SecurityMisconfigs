@@ -133,6 +133,7 @@ Ruby on Rails,web-framework,Debug exceptions in production,trigger error,HIGH,So
 SNMP,network,Default community string (public),snmpwalk -v2c -c public host,HIGH,Device configuration and network data read,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/
 Samba,network,Null session share enumeration,smbclient -L //target -N,MEDIUM,Share and user enumeration,https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
 SonarQube,ci-cd,Default admin credentials (admin/admin),/sessions/new,HIGH,Source code analysis data access,https://docs.sonarqube.org/latest/instance-administration/security/
+Sonatype Nexus,ci-cd,Default admin:admin123 credentials,/service/rest/v1/status,HIGH,Artifact repository takeover,https://help.sonatype.com/repomanager3/installation-and-upgrades/configuring-the-runtime-environment
 Spring Boot,web-framework,Actuator env endpoint exposed,/actuator/env,HIGH,Database credentials and config leak,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,Actuator heapdump endpoint,/actuator/heapdump,CRITICAL,Memory dump with credentials and secrets,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,Actuator mappings exposed,/actuator/mappings,MEDIUM,All endpoint and route disclosure,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
