@@ -118,6 +118,7 @@ OpenVPN,vpn-remote,Admin web interface exposed,:943/admin,MEDIUM,VPN configurati
 Oracle WebLogic,web-server,Console exposed,/console,HIGH,Admin access leads to RCE,https://docs.oracle.com/middleware/12213/wls/LOCKD/secure.htm
 PHP,web-framework,phpinfo() page exposed,/phpinfo.php or /info.php,MEDIUM,Full server configuration disclosure,https://www.php.net/manual/en/function.phpinfo.php
 Pi-hole,networking,Admin interface accessible without password,/admin/,MEDIUM,DNS manipulation and traffic redirection,https://docs.pi-hole.net/main/post-install/
+Portainer,container,Admin not configured on first boot,/api/users/admin/check,CRITICAL,Container platform takeover,https://docs.portainer.io/start/install-ce/server/docker/linux
 Portainer,container,Initial admin setup without restriction,:9000/,HIGH,Container management access if claimed first,https://docs.portainer.io/start/install-ce
 PostgreSQL,database,Trust authentication for local connections,psql -U postgres,HIGH,Database access without password,https://www.postgresql.org/docs/current/auth-trust.html
 Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Internal metrics and target disclosure,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
