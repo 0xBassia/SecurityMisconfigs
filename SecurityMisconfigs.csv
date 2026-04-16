@@ -90,6 +90,7 @@ InfluxDB,database,HTTP API exposed without auth,/query,HIGH,Time-series data the
 InfluxDB,database,No authentication (pre-2.0),:8086/query?q=SHOW+DATABASES,HIGH,Time-series database read/write,https://docs.influxdata.com/influxdb/v1/administration/authentication_and_authorization/
 JFrog Artifactory,ci-cd,Default admin:password credentials,/artifactory/api/system/ping,HIGH,Full repository control and artifact poisoning,https://jfrog.com/help/r/jfrog-installation-setup-documentation/first-steps-after-installation
 Jaeger UI,observability,Tracing UI exposed without auth,/api/services,MEDIUM,Internal trace data and request path disclosure,https://www.jaegertracing.io/docs/latest/deployment/
+Jamf Pro,mdm,Default jamfadmin:jamf1234 credentials,/api/v1/auth,HIGH,MDM takeover and device data exposure,https://learn.jamf.com/en-US/bundle/jamf-pro-documentation
 Jenkins,ci-cd,Script Console without authentication,/script,CRITICAL,Remote Code Execution via Groovy,https://www.jenkins.io/doc/book/managing/script-console/
 Jenkins,ci-cd,Signup enabled,/signup,MEDIUM,Unauthorized account creation,https://www.jenkins.io/doc/book/security/
 Jenkins,ci-cd,Unauthenticated access to job configs,/api/json?tree=jobs[name],HIGH,Build config and credential enumeration,https://www.jenkins.io/doc/book/security/
