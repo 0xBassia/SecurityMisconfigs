@@ -110,6 +110,7 @@ Kubernetes,container,Service account tokens mounted by default,/var/run/secrets/
 Kubernetes,container,etcd exposed without auth,:2379/version,CRITICAL,All cluster secrets accessible,https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
 Laravel,web-framework,Debug mode enabled in production,/.env or trigger error,HIGH,Database credentials and APP_KEY leak,https://laravel.com/docs/10.x/configuration
 Laravel,web-framework,Telescope debug dashboard exposed,/telescope,HIGH,Request data and logged queries,https://laravel.com/docs/10.x/telescope
+Logstash,observability,Monitoring API exposed without auth,/_node/stats,MEDIUM,Pipeline configuration and credential disclosure,https://www.elastic.co/guide/en/logstash/current/monitoring-logstash.html
 MLflow,data-science,Tracking server exposed without auth,/api/2.0/mlflow/experiments/list,HIGH,Model and artifact theft or poisoning,https://mlflow.org/docs/latest/auth/index.html
 Memcached,database,No authentication by default,echo stats | nc host 11211,HIGH,Cache data read/write,https://memcached.org/about
 Memcached,database,UDP reflection enabled,echo stats | nc -u host 11211,CRITICAL,DDoS amplification and data leak,https://memcached.org/about
