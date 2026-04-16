@@ -157,6 +157,7 @@ Rundeck,automation,Default admin:admin credentials,/user/login,HIGH,Job executio
 SNMP,network,Default community string (public),snmpwalk -v2c -c public host,HIGH,Device configuration and network data read,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/
 SaltStack,configuration-management,Salt API exposed without auth,/run,CRITICAL,Master-level command execution across minions,https://docs.saltproject.io/en/latest/topics/netapi/index.html
 Samba,network,Null session share enumeration,smbclient -L //target -N,MEDIUM,Share and user enumeration,https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
+Seafile,storage,Setup wizard accessible post-install,/accounts/login/,HIGH,Admin takeover and file access,https://manual.seafile.com/12.0/setup/
 SonarQube,ci-cd,Default admin credentials (admin/admin),/sessions/new,HIGH,Source code analysis data access,https://docs.sonarqube.org/latest/instance-administration/security/
 Sonatype Nexus,ci-cd,Default admin:admin123 credentials,/service/rest/v1/status,HIGH,Artifact repository takeover,https://help.sonatype.com/repomanager3/installation-and-upgrades/configuring-the-runtime-environment
 Spring Boot,web-framework,Actuator env endpoint exposed,/actuator/env,HIGH,Database credentials and config leak,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
