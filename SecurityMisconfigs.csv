@@ -106,6 +106,7 @@ MinIO,cloud,Default credentials (minioadmin/minioadmin),/login,HIGH,Object stora
 MinIO,storage,Default minioadmin:minioadmin credentials,/minio/health/live,HIGH,Object storage takeover,https://min.io/docs/minio/linux/operations/server-side-encryption.html
 MongoDB,database,No authentication bound to 0.0.0.0,mongo --host target,CRITICAL,Full database read/write/drop,https://www.mongodb.com/docs/manual/administration/security-checklist/
 MySQL,database,Root without password on localhost,mysql -u root,HIGH,Full database access,https://dev.mysql.com/doc/refman/8.0/en/default-privileges.html
+Nagios XI,monitoring,Default nagiosadmin:nagiosxi credentials,/nagiosxi/,HIGH,Monitoring takeover and command execution,https://www.nagios.com/products/security/
 Nagios,monitoring,Default credentials (nagiosadmin/nagiosadmin),/nagios/,HIGH,Network monitoring data and command execution,https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/
 Neo4j,database,Default credentials (neo4j/neo4j),:7474/browser/,HIGH,Graph database admin access,https://neo4j.com/docs/operations-manual/current/authentication-authorization/
 Nginx,web-server,Default welcome page,/,LOW,Technology fingerprinting,https://nginx.org/en/docs/
