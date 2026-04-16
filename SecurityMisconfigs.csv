@@ -126,6 +126,7 @@ Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Inte
 Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 RabbitMQ,database,Management UI with default guest/guest,:15672/,HIGH,Message queue admin access,https://www.rabbitmq.com/access-control.html
 Rancher,container,Default admin:admin setup page,/dashboard/auth/login,CRITICAL,Multi-cluster takeover,https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade
+Redis Commander,database,Exposed web UI without auth,/apiv2/connections,HIGH,Redis data browsing and modification,https://github.com/joeferner/redis-commander
 Redis,database,No password bound to 0.0.0.0,:6379 INFO command,CRITICAL,Data theft and potential RCE via modules,https://redis.io/docs/management/security/
 Roundcube,mail,Installer script accessible,/installer/,HIGH,Webmail config manipulation,https://github.com/roundcube/roundcubemail/wiki/Installation
 Ruby on Rails,web-framework,Debug exceptions in production,trigger error,HIGH,Source code and variable disclosure,https://guides.rubyonrails.org/configuring.html
