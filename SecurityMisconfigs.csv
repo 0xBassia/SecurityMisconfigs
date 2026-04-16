@@ -153,6 +153,7 @@ RethinkDB,database,Admin UI exposed without auth,/,HIGH,Database browsing and mo
 Rocket.Chat,communication,Setup wizard accessible post-install,/setup-wizard,HIGH,Admin account creation and workspace takeover,https://docs.rocket.chat/docs/deploy
 Roundcube,mail,Installer script accessible,/installer/,HIGH,Webmail config manipulation,https://github.com/roundcube/roundcubemail/wiki/Installation
 Ruby on Rails,web-framework,Debug exceptions in production,trigger error,HIGH,Source code and variable disclosure,https://guides.rubyonrails.org/configuring.html
+Rundeck,automation,Default admin:admin credentials,/user/login,HIGH,Job execution and credential theft,https://docs.rundeck.com/docs/administration/security/authenticating-users.html
 SNMP,network,Default community string (public),snmpwalk -v2c -c public host,HIGH,Device configuration and network data read,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/
 Samba,network,Null session share enumeration,smbclient -L //target -N,MEDIUM,Share and user enumeration,https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
 SonarQube,ci-cd,Default admin credentials (admin/admin),/sessions/new,HIGH,Source code analysis data access,https://docs.sonarqube.org/latest/instance-administration/security/
