@@ -153,6 +153,7 @@ Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Inte
 Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 Proxmox VE,virtualization,Default root login over TLS,/api2/json/version,HIGH,Hypervisor takeover,https://pve.proxmox.com/wiki/User_Management
 Puppet Server,configuration-management,CA API exposed without auth,/puppet-ca/v1/certificate_statuses/any,MEDIUM,Certificate enumeration and signing requests,https://puppet.com/docs/puppet/latest/server/configuration.html
+RStudio Server,data-science,Default login page without TLS,/auth-sign-in,MEDIUM,R workspace credential interception,https://docs.posit.co/ide/server-pro/getting_started/installation.html
 RabbitMQ,database,Management UI with default guest/guest,:15672/,HIGH,Message queue admin access,https://www.rabbitmq.com/access-control.html
 Rancher,container,Default admin:admin setup page,/dashboard/auth/login,CRITICAL,Multi-cluster takeover,https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade
 Redash,bi,Setup page accessible post-install,/setup,HIGH,Admin creation and datasource credential disclosure,https://redash.io/help/open-source/dev-guide/docker
