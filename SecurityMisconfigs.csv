@@ -102,6 +102,7 @@ Memcached,database,No authentication by default,echo stats | nc host 11211,HIGH,
 Memcached,database,UDP reflection enabled,echo stats | nc -u host 11211,CRITICAL,DDoS amplification and data leak,https://memcached.org/about
 Microsoft Exchange,mail,Autodiscover credential leak,/autodiscover/autodiscover.xml,HIGH,Email credential interception,https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/autodiscover-for-exchange
 MinIO,cloud,Default credentials (minioadmin/minioadmin),/login,HIGH,Object storage admin access,https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html
+MinIO,storage,Default minioadmin:minioadmin credentials,/minio/health/live,HIGH,Object storage takeover,https://min.io/docs/minio/linux/operations/server-side-encryption.html
 MongoDB,database,No authentication bound to 0.0.0.0,mongo --host target,CRITICAL,Full database read/write/drop,https://www.mongodb.com/docs/manual/administration/security-checklist/
 MySQL,database,Root without password on localhost,mysql -u root,HIGH,Full database access,https://dev.mysql.com/doc/refman/8.0/en/default-privileges.html
 Nagios,monitoring,Default credentials (nagiosadmin/nagiosadmin),/nagios/,HIGH,Network monitoring data and command execution,https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/
