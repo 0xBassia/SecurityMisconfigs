@@ -9,6 +9,7 @@ AWS SQS,cloud,Queue policy allows public access,aws sqs receive-message,HIGH,Mes
 Adminer,database,Adminer accessible without restriction,/adminer.php,HIGH,Database access if credentials guessed,https://www.adminer.org/en/
 Airflow,ci-cd,Web UI accessible without authentication,/admin/,HIGH,DAG execution and credential theft,https://airflow.apache.org/docs/apache-airflow/stable/security/webserver.html
 Ansible AWX,ci-cd,Default admin credentials,/api/v2/me/,MEDIUM,System access with default creds,https://docs.ansible.com/ansible-tower/
+Apache Airflow Metadata,ci-cd,Flower dashboard exposed without auth,/flower/,HIGH,Celery worker task enumeration and credential disclosure,https://airflow.apache.org/docs/apache-airflow/stable/security/webserver.html
 Apache Airflow,ci-cd,Web UI default credentials (airflow/airflow),/login/,HIGH,DAG manipulation and code execution,https://airflow.apache.org/docs/apache-airflow/stable/security/
 Apache Cassandra,database,No authentication by default,port 9042 cqlsh,HIGH,Full database read/write,https://cassandra.apache.org/doc/latest/cassandra/operating/security.html
 Apache CouchDB,database,Admin Party mode - no authentication,/_utils/,CRITICAL,Full database admin access,https://docs.couchdb.org/en/stable/intro/security.html
