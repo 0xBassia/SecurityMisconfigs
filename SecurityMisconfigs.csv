@@ -35,6 +35,7 @@ Azure Blob,cloud,Container set to public access,https://account.blob.core.window
 Bamboo,ci-cd,Default admin:admin Bamboo credentials,/rest/api/latest/info,HIGH,Build pipeline takeover,https://www.atlassian.com/software/bamboo
 Bitbucket Server,version-control,Setup wizard accessible post-install,/setup,HIGH,Configuration overwrite and admin creation,https://confluence.atlassian.com/bitbucketserver
 Cacti,monitoring,Default admin credentials (admin/admin),/cacti/,HIGH,Network monitoring data and potential RCE,https://www.cacti.net/
+Chef Server,configuration-management,Web UI accessible without TLS,/organizations,MEDIUM,Credential interception and configuration disclosure,https://docs.chef.io/server/
 Cisco Router,network,Default enable password,telnet to device,HIGH,Full device configuration access,https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-121-mainline/46986-default-pw.html
 Cisco Router,network,SNMP default community string (public/private),snmpwalk -v2c -c public host,HIGH,Device config read/write,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 Confluence,cms,Default OGNL injection paths,/wiki/,CRITICAL,Remote code execution (CVE-2022-26134),https://confluence.atlassian.com/doc/confluence-security-advisory-2022-06-02-1130377146.html
