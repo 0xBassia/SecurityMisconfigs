@@ -143,6 +143,7 @@ OpenSearch Dashboards,observability,Default admin:admin credentials,/api/status,
 OpenTSDB,database,HTTP API exposed without auth,/api/version,MEDIUM,Metric data disclosure,http://opentsdb.net/docs/build/html/user_guide/configuration.html
 OpenVPN,vpn-remote,Admin web interface exposed,:943/admin,MEDIUM,VPN configuration and user management,https://openvpn.net/vpn-server-resources/
 Oracle WebLogic,web-server,Console exposed,/console,HIGH,Admin access leads to RCE,https://docs.oracle.com/middleware/12213/wls/LOCKD/secure.htm
+Overcloud Horizon,cloud,Default admin password in undercloudrc,/auth/login/,HIGH,OpenStack deployment takeover,https://docs.openstack.org/horizon/latest/
 PHP,web-framework,phpinfo() page exposed,/phpinfo.php or /info.php,MEDIUM,Full server configuration disclosure,https://www.php.net/manual/en/function.phpinfo.php
 Pentaho BA,bi,Default admin:password credentials,/pentaho/Login,HIGH,BI dashboard and database credential disclosure,https://docs.hitachivantara.com/r/en-us/pentaho-business-analytics/
 Pi-hole,networking,Admin interface accessible without password,/admin/,MEDIUM,DNS manipulation and traffic redirection,https://docs.pi-hole.net/main/post-install/
