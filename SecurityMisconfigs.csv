@@ -44,6 +44,7 @@ Couchbase,database,Web console default credentials,port 8091,HIGH,Database admin
 Django,web-framework,Admin interface exposed,/admin/,MEDIUM,Admin login page accessible,https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
 Django,web-framework,Debug mode enabled in production,trigger error page,HIGH,Full stack trace and config disclosure,https://docs.djangoproject.com/en/4.2/ref/settings/#debug
 Docker Registry,container,Registry API without auth,:5000/v2/_catalog,HIGH,Image enumeration and pull,https://docs.docker.com/registry/configuration/
+Docker Registry,container,v2 catalog endpoint exposed,/v2/_catalog,MEDIUM,Image enumeration and potential pull of private images,https://distribution.github.io/distribution/spec/auth/
 Docker,container,Docker socket mounted in container,find / -name docker.sock,CRITICAL,Container escape via socket,https://docs.docker.com/engine/security/
 Docker,container,Remote API exposed without TLS,:2375/containers/json,CRITICAL,Container escape and host compromise,https://docs.docker.com/engine/security/
 Drupal,cms,Update.php accessible,/update.php,HIGH,Database manipulation,https://www.drupal.org/docs/updating-drupal
