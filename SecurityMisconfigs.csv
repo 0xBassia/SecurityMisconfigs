@@ -29,6 +29,7 @@ Apache Tomcat,web-server,Host Manager exposed,/host-manager/html,MEDIUM,Virtual 
 Apache Tomcat,web-server,Manager application exposed,/manager/html,HIGH,WAR deployment leads to RCE,https://tomcat.apache.org/tomcat-9.0-doc/manager-howto.html
 Apache Tomcat,web-server,Status page exposed,/status,LOW,Thread and connector information leak,https://tomcat.apache.org/tomcat-9.0-doc/
 Apache Zookeeper,database,Four letter commands enabled,echo ruok | nc host 2181,MEDIUM,Cluster state disclosure,https://zookeeper.apache.org/doc/r3.5.5/zookeeperAdmin.html
+Argo CD,ci-cd,Default admin password not rotated,/api/v1/session,HIGH,Full cluster deployment control,https://argo-cd.readthedocs.io/en/stable/operator-manual/security/
 ArgoCD,ci-cd,Initial admin password in Kubernetes secret,kubectl get secret argocd-initial-admin-secret,HIGH,Full GitOps pipeline access,https://argo-cd.readthedocs.io/en/stable/getting_started/
 Azure Blob,cloud,Container set to public access,https://account.blob.core.windows.net/container?restype=container&comp=list,CRITICAL,Data breach,https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-overview
 Cacti,monitoring,Default admin credentials (admin/admin),/cacti/,HIGH,Network monitoring data and potential RCE,https://www.cacti.net/
