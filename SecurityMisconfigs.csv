@@ -89,6 +89,7 @@ IIS,web-server,ELMAH log accessible,/elmah.axd,HIGH,Error details with stack tra
 IIS,web-server,Trace.axd enabled,/trace.axd,HIGH,Request data and session info leak,https://learn.microsoft.com/en-us/previous-versions/aspnet/
 IIS,web-server,WebDAV enabled,OPTIONS / HTTP/1.1,MEDIUM,File upload and potential RCE,https://learn.microsoft.com/en-us/iis/configuration/system.webserver/webdav/
 Icinga Web 2,monitoring,Setup wizard accessible post-install,/icingaweb2/setup,HIGH,Monitoring dashboard takeover,https://icinga.com/docs/icinga-web-2/latest/doc/02-Installation/
+Influx Chronograf,observability,Default auth disabled,/api/v1/sources,MEDIUM,InfluxDB query access,https://docs.influxdata.com/chronograf/latest/administration/managing-security/
 InfluxDB,database,HTTP API exposed without auth,/query,HIGH,Time-series data theft and modification,https://docs.influxdata.com/influxdb/v2/security/
 InfluxDB,database,No authentication (pre-2.0),:8086/query?q=SHOW+DATABASES,HIGH,Time-series database read/write,https://docs.influxdata.com/influxdb/v1/administration/authentication_and_authorization/
 JFrog Artifactory,ci-cd,Default admin:password credentials,/artifactory/api/system/ping,HIGH,Full repository control and artifact poisoning,https://jfrog.com/help/r/jfrog-installation-setup-documentation/first-steps-after-installation
