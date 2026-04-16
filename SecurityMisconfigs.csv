@@ -52,6 +52,7 @@ Drupal,cms,User registration open by default,/user/register,MEDIUM,Account creat
 Elasticsearch,database,Cluster health exposed,:9200/_cluster/health,MEDIUM,Cluster infrastructure disclosure,https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html
 Elasticsearch,database,No authentication by default (pre-8.0),:9200/_cat/indices,CRITICAL,Full database read/write/delete,https://www.elastic.co/guide/en/elasticsearch/reference/current/security-minimal-setup.html
 Envoy,network,Admin interface on localhost,:9901/,MEDIUM,Proxy config and stats disclosure,https://www.envoyproxy.io/docs/envoy/latest/operations/admin
+Etcd,database,v2 keys API exposed without TLS auth,/v2/keys/,CRITICAL,Cluster configuration and secret disclosure,https://etcd.io/docs/v3.5/op-guide/security/
 Express.js,web-framework,Stack traces in production,trigger error,MEDIUM,Path and code disclosure,https://expressjs.com/en/advanced/best-practice-security.html
 Firebase,cloud,Cloud Firestore rules too permissive,Firestore REST API,CRITICAL,Document read/write,https://firebase.google.com/docs/firestore/security/get-started
 Firebase,cloud,Realtime Database rules set to public,/.json,CRITICAL,Full database read/write,https://firebase.google.com/docs/database/security
