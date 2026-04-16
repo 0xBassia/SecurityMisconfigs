@@ -62,6 +62,7 @@ Express.js,web-framework,Stack traces in production,trigger error,MEDIUM,Path an
 Firebase,cloud,Cloud Firestore rules too permissive,Firestore REST API,CRITICAL,Document read/write,https://firebase.google.com/docs/firestore/security/get-started
 Firebase,cloud,Realtime Database rules set to public,/.json,CRITICAL,Full database read/write,https://firebase.google.com/docs/database/security
 Flask,web-framework,Debug mode enabled (Werkzeug debugger),trigger error,CRITICAL,Remote code execution via debugger console,https://flask.palletsprojects.com/en/2.3.x/debugging/
+Fluentd,observability,HTTP input plugin exposed without auth,/api/plugins.json,MEDIUM,Log injection and internal route disclosure,https://docs.fluentd.org/input/http
 GCP Cloud Storage,cloud,Bucket set to allUsers read,gsutil ls gs://bucket-name,CRITICAL,Data breach,https://cloud.google.com/storage/docs/access-control
 Gerrit Code Review,version-control,Anonymous user can browse projects,/projects/,MEDIUM,Source code metadata disclosure,https://gerrit-review.googlesource.com/Documentation/config-gerrit.html
 GitLab,ci-cd,Public registration enabled by default,/users/sign_up,HIGH,Internal repository access,https://docs.gitlab.com/ee/administration/settings/sign_up_restrictions.html
