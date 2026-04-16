@@ -144,6 +144,7 @@ OpenTSDB,database,HTTP API exposed without auth,/api/version,MEDIUM,Metric data 
 OpenVPN,vpn-remote,Admin web interface exposed,:943/admin,MEDIUM,VPN configuration and user management,https://openvpn.net/vpn-server-resources/
 Oracle WebLogic,web-server,Console exposed,/console,HIGH,Admin access leads to RCE,https://docs.oracle.com/middleware/12213/wls/LOCKD/secure.htm
 PHP,web-framework,phpinfo() page exposed,/phpinfo.php or /info.php,MEDIUM,Full server configuration disclosure,https://www.php.net/manual/en/function.phpinfo.php
+Pentaho BA,bi,Default admin:password credentials,/pentaho/Login,HIGH,BI dashboard and database credential disclosure,https://docs.hitachivantara.com/r/en-us/pentaho-business-analytics/
 Pi-hole,networking,Admin interface accessible without password,/admin/,MEDIUM,DNS manipulation and traffic redirection,https://docs.pi-hole.net/main/post-install/
 Plex Media Server,media,Web UI exposed without claim token,/web/index.html,MEDIUM,Media library takeover and token theft,https://support.plex.tv/articles/201105343/
 Portainer,container,Admin not configured on first boot,/api/users/admin/check,CRITICAL,Container platform takeover,https://docs.portainer.io/start/install-ce/server/docker/linux
