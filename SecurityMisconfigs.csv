@@ -79,6 +79,7 @@ Harbor,container,Default admin credentials (Harbor12345),/harbor/sign-in,HIGH,Co
 Harbor,container,Default admin:Harbor12345 credentials,/api/v2.0/users,HIGH,Registry takeover,https://goharbor.io/docs/2.10.0/install-config/reconfigure-manage-lifecycle/
 HashiCorp Vault,ci-cd,UI enabled on production,:8200/ui/,MEDIUM,Vault management interface exposed,https://developer.hashicorp.com/vault/docs/configuration/ui
 Hasura GraphQL,database,Admin secret not configured,/v1/graphql,CRITICAL,Full database schema and data access,https://hasura.io/docs/latest/deployment/graphql-engine-flags/config-examples/
+Hazelcast Management Center,cache,Setup page accessible without auth,/hazelcast-mancenter/,HIGH,Cluster configuration takeover,https://docs.hazelcast.com/management-center/latest/getting-started/overview
 Hikvision,iot,Default credentials (admin/12345),web interface port 80,HIGH,Camera feed access and device control,https://www.hikvision.com/
 IIS,web-server,ELMAH log accessible,/elmah.axd,HIGH,Error details with stack traces and user data,https://elmah.github.io/
 IIS,web-server,Trace.axd enabled,/trace.axd,HIGH,Request data and session info leak,https://learn.microsoft.com/en-us/previous-versions/aspnet/
