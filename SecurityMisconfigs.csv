@@ -112,6 +112,7 @@ Laravel,web-framework,Debug mode enabled in production,/.env or trigger error,HI
 Laravel,web-framework,Telescope debug dashboard exposed,/telescope,HIGH,Request data and logged queries,https://laravel.com/docs/10.x/telescope
 Logstash,observability,Monitoring API exposed without auth,/_node/stats,MEDIUM,Pipeline configuration and credential disclosure,https://www.elastic.co/guide/en/logstash/current/monitoring-logstash.html
 MLflow,data-science,Tracking server exposed without auth,/api/2.0/mlflow/experiments/list,HIGH,Model and artifact theft or poisoning,https://mlflow.org/docs/latest/auth/index.html
+Mattermost,communication,Setup wizard accessible post-install,/setup/wizard,HIGH,Admin account creation and team takeover,https://docs.mattermost.com/install/configure-hostname.html
 Memcached,database,No authentication by default,echo stats | nc host 11211,HIGH,Cache data read/write,https://memcached.org/about
 Memcached,database,UDP reflection enabled,echo stats | nc -u host 11211,CRITICAL,DDoS amplification and data leak,https://memcached.org/about
 Microsoft Exchange,mail,Autodiscover credential leak,/autodiscover/autodiscover.xml,HIGH,Email credential interception,https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/autodiscover-for-exchange
