@@ -14,6 +14,7 @@ Apache Cassandra,database,No authentication by default,port 9042 cqlsh,HIGH,Full
 Apache CouchDB,database,Admin Party mode - no authentication,/_utils/,CRITICAL,Full database admin access,https://docs.couchdb.org/en/stable/intro/security.html
 Apache Druid,database,Console accessible without auth,/unified-console.html,HIGH,Query execution and data access,https://druid.apache.org/docs/latest/operations/security-overview
 Apache Flink,ci-cd,Dashboard without authentication,/#/overview,HIGH,Job submission leads to RCE,https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/security/security-ssl/
+Apache Guacamole,remote-access,Default guacadmin:guacadmin credentials,/guacamole/#/login,HIGH,Remote session takeover and credential theft,https://guacamole.apache.org/doc/gug/configuring-guacamole.html
 Apache HTTP,web-server,Default welcome page exposed,/,LOW,Technology fingerprinting,https://httpd.apache.org/
 Apache HTTP,web-server,Directory listing enabled,/icons/,LOW,File enumeration,https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html
 Apache HTTP,web-server,server-info endpoint exposed,/server-info,MEDIUM,Full server configuration disclosure,https://httpd.apache.org/docs/2.4/mod/mod_info.html
