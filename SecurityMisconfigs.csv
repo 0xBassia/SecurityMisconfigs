@@ -37,6 +37,7 @@ Cisco Router,network,Default enable password,telnet to device,HIGH,Full device c
 Cisco Router,network,SNMP default community string (public/private),snmpwalk -v2c -c public host,HIGH,Device config read/write,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 Confluence,cms,Default OGNL injection paths,/wiki/,CRITICAL,Remote code execution (CVE-2022-26134),https://confluence.atlassian.com/doc/confluence-security-advisory-2022-06-02-1130377146.html
 Consul,ci-cd,HTTP API without ACL tokens,/v1/agent/members,HIGH,Service mesh config access and manipulation,https://developer.hashicorp.com/consul/docs/security
+Consul,infrastructure,UI exposed without ACLs,/ui/,HIGH,Service configuration and secret disclosure,https://developer.hashicorp.com/consul/docs/security/acl
 CoreDNS,network,Version disclosure via CH TXT query,dig CH TXT version.bind @target,LOW,Version fingerprinting,https://coredns.io/
 Couchbase,database,Web console default credentials,port 8091,HIGH,Database admin access,https://docs.couchbase.com/server/current/manage/manage-security/manage-users-and-roles.html
 Django,web-framework,Admin interface exposed,/admin/,MEDIUM,Admin login page accessible,https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
