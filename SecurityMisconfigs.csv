@@ -115,6 +115,7 @@ MLflow,data-science,Tracking server exposed without auth,/api/2.0/mlflow/experim
 Mattermost,communication,Setup wizard accessible post-install,/setup/wizard,HIGH,Admin account creation and team takeover,https://docs.mattermost.com/install/configure-hostname.html
 Memcached,database,No authentication by default,echo stats | nc host 11211,HIGH,Cache data read/write,https://memcached.org/about
 Memcached,database,UDP reflection enabled,echo stats | nc -u host 11211,CRITICAL,DDoS amplification and data leak,https://memcached.org/about
+Metabase,bi,Default setup not completed,/api/session/properties,HIGH,Database connection credential disclosure,https://www.metabase.com/docs/latest/installation-and-operation/configuring-application-database
 Microsoft Exchange,mail,Autodiscover credential leak,/autodiscover/autodiscover.xml,HIGH,Email credential interception,https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/autodiscover-for-exchange
 MinIO,cloud,Default credentials (minioadmin/minioadmin),/login,HIGH,Object storage admin access,https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html
 MinIO,storage,Default minioadmin:minioadmin credentials,/minio/health/live,HIGH,Object storage takeover,https://min.io/docs/minio/linux/operations/server-side-encryption.html
