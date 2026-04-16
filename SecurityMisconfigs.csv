@@ -172,5 +172,6 @@ WordPress,cms,XML-RPC enabled,/xmlrpc.php,MEDIUM,Brute force amplification and p
 Zabbix,monitoring,Default Admin/zabbix credentials,/zabbix/,HIGH,Network monitoring access and script execution,https://www.zabbix.com/documentation/current/en/manual/quickstart/login
 etcd,container,API exposed without authentication,:2379/v2/keys/,CRITICAL,Kubernetes secrets and cluster config theft,https://etcd.io/docs/v3.5/op-guide/security/
 pfSense,network,Default credentials (admin/pfsense),/,HIGH,Full firewall and network control,https://docs.netgate.com/pfsense/en/latest/
+pgAdmin,database,Web UI accessible without TLS,/login,MEDIUM,PostgreSQL credential interception,https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
 phpMyAdmin,database,Setup script accessible,/phpmyadmin/setup/,HIGH,Database configuration manipulation,https://www.phpmyadmin.net/
 product,category,misconfiguration,check,severity,impact,reference
