@@ -45,6 +45,7 @@ Consul,infrastructure,UI exposed without ACLs,/ui/,HIGH,Service configuration an
 CoreDNS,network,Version disclosure via CH TXT query,dig CH TXT version.bind @target,LOW,Version fingerprinting,https://coredns.io/
 CouchDB,database,Admin party mode enabled,/_utils/,CRITICAL,Full database read/write without auth,https://docs.couchdb.org/en/stable/setup/cluster.html
 Couchbase,database,Web console default credentials,port 8091,HIGH,Database admin access,https://docs.couchbase.com/server/current/manage/manage-security/manage-users-and-roles.html
+Directus,cms,Default admin@example.com:d1r3ctu5 credentials,/admin/login,HIGH,CMS takeover and content manipulation,https://docs.directus.io/self-hosted/config-options.html
 Django,web-framework,Admin interface exposed,/admin/,MEDIUM,Admin login page accessible,https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
 Django,web-framework,Debug mode enabled in production,trigger error page,HIGH,Full stack trace and config disclosure,https://docs.djangoproject.com/en/4.2/ref/settings/#debug
 Docker Registry,container,Registry API without auth,:5000/v2/_catalog,HIGH,Image enumeration and pull,https://docs.docker.com/registry/configuration/
