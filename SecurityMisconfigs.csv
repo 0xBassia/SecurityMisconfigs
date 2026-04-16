@@ -90,6 +90,7 @@ Kafka Connect,messaging,REST API exposed without auth,/connectors,HIGH,Sensitive
 Keycloak,identity,Default admin:admin master realm credentials,/auth/admin/,CRITICAL,Full identity provider takeover,https://www.keycloak.org/docs/latest/server_admin/
 Keycloak,web-framework,Admin console exposed,/admin/,MEDIUM,Identity provider admin access,https://www.keycloak.org/docs/latest/server_admin/
 Kibana,monitoring,No authentication (pre-8.0),/app/kibana,HIGH,Log data and index pattern access,https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html
+Kubernetes Dashboard,container,Exposed without authentication,/api/v1/login,CRITICAL,Full cluster control,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 Kubernetes,container,API server anonymous auth enabled,:6443/api/v1/namespaces,CRITICAL,Cluster resource access,https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 Kubernetes,container,Dashboard without authentication,/api/v1/namespaces/kubernetes-dashboard,CRITICAL,Full cluster management,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 Kubernetes,container,Kubelet read-only port exposed,:10255/pods,HIGH,Pod info and secrets disclosure,https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
