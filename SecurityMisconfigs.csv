@@ -75,6 +75,7 @@ Hikvision,iot,Default credentials (admin/12345),web interface port 80,HIGH,Camer
 IIS,web-server,ELMAH log accessible,/elmah.axd,HIGH,Error details with stack traces and user data,https://elmah.github.io/
 IIS,web-server,Trace.axd enabled,/trace.axd,HIGH,Request data and session info leak,https://learn.microsoft.com/en-us/previous-versions/aspnet/
 IIS,web-server,WebDAV enabled,OPTIONS / HTTP/1.1,MEDIUM,File upload and potential RCE,https://learn.microsoft.com/en-us/iis/configuration/system.webserver/webdav/
+InfluxDB,database,HTTP API exposed without auth,/query,HIGH,Time-series data theft and modification,https://docs.influxdata.com/influxdb/v2/security/
 InfluxDB,database,No authentication (pre-2.0),:8086/query?q=SHOW+DATABASES,HIGH,Time-series database read/write,https://docs.influxdata.com/influxdb/v1/administration/authentication_and_authorization/
 Jenkins,ci-cd,Script Console without authentication,/script,CRITICAL,Remote Code Execution via Groovy,https://www.jenkins.io/doc/book/managing/script-console/
 Jenkins,ci-cd,Signup enabled,/signup,MEDIUM,Unauthorized account creation,https://www.jenkins.io/doc/book/security/
