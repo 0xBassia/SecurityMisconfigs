@@ -113,6 +113,7 @@ Nginx,web-server,Default welcome page,/,LOW,Technology fingerprinting,https://ng
 Nginx,web-server,Status page exposed,/nginx_status,LOW,Connection count and request rate,https://nginx.org/en/docs/http/ngx_http_stub_status_module.html
 Node.js Express,web-framework,Morgan access logs in stdout,check response headers,LOW,Request logging pattern disclosure,https://expressjs.com/en/advanced/best-practice-security.html
 Nomad,ci-cd,HTTP API without ACL,/v1/agent/members,HIGH,Job submission and execution,https://developer.hashicorp.com/nomad/docs/configuration/acl
+OpenTSDB,database,HTTP API exposed without auth,/api/version,MEDIUM,Metric data disclosure,http://opentsdb.net/docs/build/html/user_guide/configuration.html
 OpenVPN,vpn-remote,Admin web interface exposed,:943/admin,MEDIUM,VPN configuration and user management,https://openvpn.net/vpn-server-resources/
 Oracle WebLogic,web-server,Console exposed,/console,HIGH,Admin access leads to RCE,https://docs.oracle.com/middleware/12213/wls/LOCKD/secure.htm
 PHP,web-framework,phpinfo() page exposed,/phpinfo.php or /info.php,MEDIUM,Full server configuration disclosure,https://www.php.net/manual/en/function.phpinfo.php
