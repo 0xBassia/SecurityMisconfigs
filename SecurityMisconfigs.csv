@@ -105,6 +105,7 @@ Keycloak,web-framework,Admin console exposed,/admin/,MEDIUM,Identity provider ad
 Kibana,monitoring,No authentication (pre-8.0),/app/kibana,HIGH,Log data and index pattern access,https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html
 Kong Admin API,gateway,Admin API exposed on 8001 without auth,/status,CRITICAL,Gateway configuration takeover,https://docs.konghq.com/gateway/latest/production/access-control/start-securing-admin-api/
 Kubernetes Dashboard,container,Exposed without authentication,/api/v1/login,CRITICAL,Full cluster control,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+Kubernetes Kubelet,container,Read-only port 10255 exposed,/metrics,HIGH,Pod metadata and container discovery,https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/
 Kubernetes,container,API server anonymous auth enabled,:6443/api/v1/namespaces,CRITICAL,Cluster resource access,https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 Kubernetes,container,Dashboard without authentication,/api/v1/namespaces/kubernetes-dashboard,CRITICAL,Full cluster management,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 Kubernetes,container,Kubelet read-only port exposed,:10255/pods,HIGH,Pod info and secrets disclosure,https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
