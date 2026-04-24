@@ -219,5 +219,6 @@ WordPress,cms,Debug log accessible,/wp-content/debug.log,HIGH,Error details with
 WordPress,cms,Readme version disclosure,/readme.html,LOW,WordPress version fingerprinting,https://wordpress.org/
 WordPress,cms,User enumeration via REST API,/wp-json/wp/v2/users,MEDIUM,Username disclosure,https://developer.wordpress.org/rest-api/reference/users/
 Zabbix,monitoring,Default Admin/zabbix credentials,/zabbix/,HIGH,Network monitoring access and script execution,https://www.zabbix.com/documentation/current/en/manual/quickstart/login
+Zabbix,monitoring,Default Admin/zabbix credentials active,/zabbix.php?action=dashboard.view,HIGH,Monitoring host takeover and internal network recon,https://www.zabbix.com/documentation/current/en/manual/web_interface/frontend_sections/administration/authentication
 Zammad,ticketing,Setup wizard accessible post-install,/getting_started,HIGH,Admin account creation and ticket data access,https://admin-docs.zammad.org/en/latest/install/index.html
 Zulip,communication,Server exposed without auth backend configured,/api/v1/server_settings,MEDIUM,Organization metadata disclosure,https://zulip.readthedocs.io/en/stable/production/install.html
