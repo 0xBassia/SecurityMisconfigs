@@ -1,26 +1,21 @@
 .env file,web-framework,Environment file accessible on webserver,/.env,HIGH,Credential and API key leak,https://owasp.org/www-project-web-security-testing-guide/
 .git directory,web-server,Git repository exposed on webserver,/.git/HEAD,HIGH,Full source code disclosure,https://owasp.org/www-project-web-security-testing-guide/
 .svn directory,web-server,SVN repository exposed on webserver,/.svn/entries,HIGH,Source code and path disclosure,https://owasp.org/www-project-web-security-testing-guide/
-AWS EC2,cloud,Instance metadata accessible (IMDSv1),http://169.254.169.254/latest/meta-data/,CRITICAL,IAM credential theft via SSRF,https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
-AWS S3,cloud,Bucket ACL set to public-read,aws s3 ls s3://bucket-name,CRITICAL,Data breach,https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-overview.html
-AWS S3,cloud,Bucket policy allows public write,PUT request to bucket,CRITICAL,Data tampering and malware hosting,https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-overview.html
-AWS SNS,cloud,Topic policy allows public subscribe,aws sns list-subscriptions-by-topic,HIGH,Message interception,https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html
-AWS SQS,cloud,Queue policy allows public access,aws sqs receive-message,HIGH,Message interception and injection,https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security-best-practices.html
 Adminer,database,Adminer accessible without restriction,/adminer.php,HIGH,Database access if credentials guessed,https://www.adminer.org/en/
 Airflow,ci-cd,Web UI accessible without authentication,/admin/,HIGH,DAG execution and credential theft,https://airflow.apache.org/docs/apache-airflow/stable/security/webserver.html
 Ansible AWX,ci-cd,Default admin credentials,/api/v2/me/,MEDIUM,System access with default creds,https://docs.ansible.com/ansible-tower/
-Apache Airflow Metadata,ci-cd,Flower dashboard exposed without auth,/flower/,HIGH,Celery worker task enumeration and credential disclosure,https://airflow.apache.org/docs/apache-airflow/stable/security/webserver.html
 Apache Airflow,ci-cd,Web UI default credentials (airflow/airflow),/login/,HIGH,DAG manipulation and code execution,https://airflow.apache.org/docs/apache-airflow/stable/security/
+Apache Airflow Metadata,ci-cd,Flower dashboard exposed without auth,/flower/,HIGH,Celery worker task enumeration and credential disclosure,https://airflow.apache.org/docs/apache-airflow/stable/security/webserver.html
 Apache Cassandra,database,No authentication by default,port 9042 cqlsh,HIGH,Full database read/write,https://cassandra.apache.org/doc/latest/cassandra/operating/security.html
 Apache CouchDB,database,Admin Party mode - no authentication,/_utils/,CRITICAL,Full database admin access,https://docs.couchdb.org/en/stable/intro/security.html
 Apache Druid,database,Console accessible without auth,/unified-console.html,HIGH,Query execution and data access,https://druid.apache.org/docs/latest/operations/security-overview
 Apache Flink,ci-cd,Dashboard without authentication,/#/overview,HIGH,Job submission leads to RCE,https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/security/security-ssl/
 Apache Guacamole,remote-access,Default guacadmin:guacadmin credentials,/guacamole/#/login,HIGH,Remote session takeover and credential theft,https://guacamole.apache.org/doc/gug/configuring-guacamole.html
-Apache HTTP,web-server,Default welcome page exposed,/,LOW,Technology fingerprinting,https://httpd.apache.org/
+Apache Hadoop YARN,cloud,ResourceManager exposed without auth,:8088/cluster,CRITICAL,Remote code execution via application submission,https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html
 Apache HTTP,web-server,Directory listing enabled,/icons/,LOW,File enumeration,https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html
 Apache HTTP,web-server,server-info endpoint exposed,/server-info,MEDIUM,Full server configuration disclosure,https://httpd.apache.org/docs/2.4/mod/mod_info.html
 Apache HTTP,web-server,server-status endpoint exposed,/server-status,MEDIUM,Internal URL and client IP disclosure,https://httpd.apache.org/docs/2.4/mod/mod_status.html
-Apache Hadoop YARN,cloud,ResourceManager exposed without auth,:8088/cluster,CRITICAL,Remote code execution via application submission,https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html
+Apache HTTP,web-server,Default welcome page exposed,/,LOW,Technology fingerprinting,https://httpd.apache.org/
 Apache Kafka,database,JMX port exposed without auth,port 9999,HIGH,Cluster monitoring and manipulation,https://kafka.apache.org/documentation/#security
 Apache NiFi,ci-cd,Web UI without authentication,/nifi/,CRITICAL,Data pipeline manipulation and RCE,https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html
 Apache Solr,database,Admin UI without authentication,/solr/admin/,HIGH,Data access and potential RCE,https://solr.apache.org/guide/solr/latest/deployment-guide/securing-solr.html
@@ -33,6 +28,11 @@ Apache Tomcat,web-server,Status page exposed,/status,LOW,Thread and connector in
 Apache Zookeeper,database,Four letter commands enabled,echo ruok | nc host 2181,MEDIUM,Cluster state disclosure,https://zookeeper.apache.org/doc/r3.5.5/zookeeperAdmin.html
 Argo CD,ci-cd,Default admin password not rotated,/api/v1/session,HIGH,Full cluster deployment control,https://argo-cd.readthedocs.io/en/stable/operator-manual/security/
 ArgoCD,ci-cd,Initial admin password in Kubernetes secret,kubectl get secret argocd-initial-admin-secret,HIGH,Full GitOps pipeline access,https://argo-cd.readthedocs.io/en/stable/getting_started/
+AWS EC2,cloud,Instance metadata accessible (IMDSv1),http://169.254.169.254/latest/meta-data/,CRITICAL,IAM credential theft via SSRF,https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+AWS S3,cloud,Bucket policy allows public write,PUT request to bucket,CRITICAL,Data tampering and malware hosting,https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-overview.html
+AWS S3,cloud,Bucket ACL set to public-read,aws s3 ls s3://bucket-name,CRITICAL,Data breach,https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-overview.html
+AWS SNS,cloud,Topic policy allows public subscribe,aws sns list-subscriptions-by-topic,HIGH,Message interception,https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html
+AWS SQS,cloud,Queue policy allows public access,aws sqs receive-message,HIGH,Message interception and injection,https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security-best-practices.html
 Azure Blob,cloud,Container set to public access,https://account.blob.core.windows.net/container?restype=container&comp=list,CRITICAL,Data breach,https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-overview
 Bamboo,ci-cd,Default admin:admin Bamboo credentials,/rest/api/latest/info,HIGH,Build pipeline takeover,https://www.atlassian.com/software/bamboo
 Bitbucket Server,version-control,Setup wizard accessible post-install,/setup,HIGH,Configuration overwrite and admin creation,https://confluence.atlassian.com/bitbucketserver
@@ -42,44 +42,46 @@ Cisco Router,network,Default enable password,telnet to device,HIGH,Full device c
 Cisco Router,network,SNMP default community string (public/private),snmpwalk -v2c -c public host,HIGH,Device config read/write,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 ClickHouse,database,HTTP interface exposed without auth,/?query=SELECT+1,HIGH,Database read and potential data exfiltration,https://clickhouse.com/docs/en/operations/access-rights
 Confluence,cms,Default OGNL injection paths,/wiki/,CRITICAL,Remote code execution (CVE-2022-26134),https://confluence.atlassian.com/doc/confluence-security-advisory-2022-06-02-1130377146.html
-Consul Catalog,infrastructure,Catalog endpoint exposed without ACLs,/v1/catalog/services,HIGH,Service mesh enumeration,https://developer.hashicorp.com/consul/docs/agent/http
 Consul,ci-cd,HTTP API without ACL tokens,/v1/agent/members,HIGH,Service mesh config access and manipulation,https://developer.hashicorp.com/consul/docs/security
 Consul,infrastructure,UI exposed without ACLs,/ui/,HIGH,Service configuration and secret disclosure,https://developer.hashicorp.com/consul/docs/security/acl
+Consul Catalog,infrastructure,Catalog endpoint exposed without ACLs,/v1/catalog/services,HIGH,Service mesh enumeration,https://developer.hashicorp.com/consul/docs/agent/http
 CoreDNS,network,Version disclosure via CH TXT query,dig CH TXT version.bind @target,LOW,Version fingerprinting,https://coredns.io/
-CouchDB,database,Admin party mode enabled,/_utils/,CRITICAL,Full database read/write without auth,https://docs.couchdb.org/en/stable/setup/cluster.html
 Couchbase,database,Setup wizard accessible post-install,/settings/web,HIGH,Cluster admin account creation,https://docs.couchbase.com/server/current/manage/manage-security/manage-security.html
 Couchbase,database,Web console default credentials,port 8091,HIGH,Database admin access,https://docs.couchbase.com/server/current/manage/manage-security/manage-users-and-roles.html
+CouchDB,database,Admin party mode enabled,/_utils/,CRITICAL,Full database read/write without auth,https://docs.couchdb.org/en/stable/setup/cluster.html
 Directus,cms,Default admin@example.com:d1r3ctu5 credentials,/admin/login,HIGH,CMS takeover and content manipulation,https://docs.directus.io/self-hosted/config-options.html
 Django,web-framework,Admin interface exposed,/admin/,MEDIUM,Admin login page accessible,https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
 Django,web-framework,Debug mode enabled in production,trigger error page,HIGH,Full stack trace and config disclosure,https://docs.djangoproject.com/en/4.2/ref/settings/#debug
-Docker Registry,container,Registry API without auth,:5000/v2/_catalog,HIGH,Image enumeration and pull,https://docs.docker.com/registry/configuration/
-Docker Registry,container,v2 catalog endpoint exposed,/v2/_catalog,MEDIUM,Image enumeration and potential pull of private images,https://distribution.github.io/distribution/spec/auth/
 Docker,container,Docker socket mounted in container,find / -name docker.sock,CRITICAL,Container escape via socket,https://docs.docker.com/engine/security/
 Docker,container,Remote API exposed without TLS,:2375/containers/json,CRITICAL,Container escape and host compromise,https://docs.docker.com/engine/security/
+Docker Registry,container,Registry API without auth,:5000/v2/_catalog,HIGH,Image enumeration and pull,https://docs.docker.com/registry/configuration/
+Docker Registry,container,v2 catalog endpoint exposed,/v2/_catalog,MEDIUM,Image enumeration and potential pull of private images,https://distribution.github.io/distribution/spec/auth/
 Drupal,cms,Update.php accessible,/update.php,HIGH,Database manipulation,https://www.drupal.org/docs/updating-drupal
 Drupal,cms,User registration open by default,/user/register,MEDIUM,Account creation on restricted sites,https://www.drupal.org/docs/administering-a-drupal-site/managing-users
 Elasticsearch,database,Cluster health exposed,:9200/_cluster/health,MEDIUM,Cluster infrastructure disclosure,https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html
 Elasticsearch,database,No authentication by default (pre-8.0),:9200/_cat/indices,CRITICAL,Full database read/write/delete,https://www.elastic.co/guide/en/elasticsearch/reference/current/security-minimal-setup.html
 Envoy,network,Admin interface on localhost,:9901/,MEDIUM,Proxy config and stats disclosure,https://www.envoyproxy.io/docs/envoy/latest/operations/admin
 Etcd,database,v2 keys API exposed without TLS auth,/v2/keys/,CRITICAL,Cluster configuration and secret disclosure,https://etcd.io/docs/v3.5/op-guide/security/
+etcd,container,API exposed without authentication,:2379/v2/keys/,CRITICAL,Kubernetes secrets and cluster config theft,https://etcd.io/docs/v3.5/op-guide/security/
 Express.js,web-framework,Stack traces in production,trigger error,MEDIUM,Path and code disclosure,https://expressjs.com/en/advanced/best-practice-security.html
-Firebase,cloud,Cloud Firestore rules too permissive,Firestore REST API,CRITICAL,Document read/write,https://firebase.google.com/docs/firestore/security/get-started
 Firebase,cloud,Realtime Database rules set to public,/.json,CRITICAL,Full database read/write,https://firebase.google.com/docs/database/security
+Firebase,cloud,Cloud Firestore rules too permissive,Firestore REST API,CRITICAL,Document read/write,https://firebase.google.com/docs/firestore/security/get-started
 Flask,web-framework,Debug mode enabled (Werkzeug debugger),trigger error,CRITICAL,Remote code execution via debugger console,https://flask.palletsprojects.com/en/2.3.x/debugging/
 Fluentd,observability,HTTP input plugin exposed without auth,/api/plugins.json,MEDIUM,Log injection and internal route disclosure,https://docs.fluentd.org/input/http
 GCP Cloud Storage,cloud,Bucket set to allUsers read,gsutil ls gs://bucket-name,CRITICAL,Data breach,https://cloud.google.com/storage/docs/access-control
 Gerrit Code Review,version-control,Anonymous user can browse projects,/projects/,MEDIUM,Source code metadata disclosure,https://gerrit-review.googlesource.com/Documentation/config-gerrit.html
+Gitbook,cms,Setup wizard accessible post-install,/install,MEDIUM,Admin account creation,https://docs.gitbook.com/
+Gitea,version-control,Install page accessible post-setup,/install,HIGH,Configuration overwrite and RCE,https://docs.gitea.com/installation/install-from-binary
+Gitea,ci-cd,Public registration enabled by default,/user/sign_up,MEDIUM,Unauthorized repo access on private instances,https://docs.gitea.io/en-us/
 GitLab,ci-cd,Public registration enabled by default,/users/sign_up,HIGH,Internal repository access,https://docs.gitlab.com/ee/administration/settings/sign_up_restrictions.html
 GitLab,ci-cd,Snippets publicly accessible,/explore/snippets,MEDIUM,Code and credential leak,https://docs.gitlab.com/ee/user/snippets.html
-Gitbook,cms,Setup wizard accessible post-install,/install,MEDIUM,Admin account creation,https://docs.gitbook.com/
-Gitea,ci-cd,Public registration enabled by default,/user/sign_up,MEDIUM,Unauthorized repo access on private instances,https://docs.gitea.io/en-us/
-Gitea,version-control,Install page accessible post-setup,/install,HIGH,Configuration overwrite and RCE,https://docs.gitea.com/installation/install-from-binary
 GoCD,ci-cd,Server accessible without login,/go/dashboard,HIGH,Pipeline execution and credential theft,https://docs.gocd.org/current/configuration/security.html
-Grafana,monitoring,API keys accessible,/api/auth/keys,MEDIUM,API key enumeration,https://grafana.com/docs/grafana/latest/administration/api-keys/
 Grafana,monitoring,Anonymous access enabled,/api/dashboards/home,HIGH,Dashboard data exposure without login,https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/
 Grafana,monitoring,Default admin/admin credentials,/login,HIGH,Full dashboard and datasource access,https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/
+Grafana,monitoring,API keys accessible,/api/auth/keys,MEDIUM,API key enumeration,https://grafana.com/docs/grafana/latest/administration/api-keys/
 Graylog,monitoring,Default admin credentials (admin/admin),/,HIGH,Log data access and system config,https://docs.graylog.org/docs/server-conf
 HAProxy,network,Stats page exposed without auth,/haproxy?stats,MEDIUM,Backend server and traffic info disclosure,http://www.haproxy.org/download/2.6/doc/configuration.txt
+HAProxy Stats,network,Stats page exposed without authentication,/haproxy?stats,MEDIUM,Backend server enumeration and session state disclosure,https://docs.haproxy.org/2.8/configuration.html
 Harbor,container,Default admin credentials (Harbor12345),/harbor/sign-in,HIGH,Container registry admin access,https://goharbor.io/docs/2.9.0/install-config/
 Harbor,container,Default admin:Harbor12345 credentials,/api/v2.0/users,HIGH,Registry takeover,https://goharbor.io/docs/2.10.0/install-config/reconfigure-manage-lifecycle/
 HashiCorp Vault,ci-cd,UI enabled on production,:8200/ui/,MEDIUM,Vault management interface exposed,https://developer.hashicorp.com/vault/docs/configuration/ui
@@ -87,19 +89,19 @@ Hasura GraphQL,database,Admin secret not configured,/v1/graphql,CRITICAL,Full da
 Hazelcast Management Center,cache,Setup page accessible without auth,/hazelcast-mancenter/,HIGH,Cluster configuration takeover,https://docs.hazelcast.com/management-center/latest/getting-started/overview
 Hikvision,iot,Default credentials (admin/12345),web interface port 80,HIGH,Camera feed access and device control,https://www.hikvision.com/
 Home Assistant,iot,Supervisor API accessible from network,/api/states,HIGH,Home automation takeover and physical impact,https://www.home-assistant.io/integrations/http/
+Icinga Web 2,monitoring,Setup wizard accessible post-install,/icingaweb2/setup,HIGH,Monitoring dashboard takeover,https://icinga.com/docs/icinga-web-2/latest/doc/02-Installation/
 IIS,web-server,ELMAH log accessible,/elmah.axd,HIGH,Error details with stack traces and user data,https://elmah.github.io/
 IIS,web-server,Trace.axd enabled,/trace.axd,HIGH,Request data and session info leak,https://learn.microsoft.com/en-us/previous-versions/aspnet/
 IIS,web-server,WebDAV enabled,OPTIONS / HTTP/1.1,MEDIUM,File upload and potential RCE,https://learn.microsoft.com/en-us/iis/configuration/system.webserver/webdav/
-Icinga Web 2,monitoring,Setup wizard accessible post-install,/icingaweb2/setup,HIGH,Monitoring dashboard takeover,https://icinga.com/docs/icinga-web-2/latest/doc/02-Installation/
 Influx Chronograf,observability,Default auth disabled,/api/v1/sources,MEDIUM,InfluxDB query access,https://docs.influxdata.com/chronograf/latest/administration/managing-security/
 InfluxDB,database,HTTP API exposed without auth,/query,HIGH,Time-series data theft and modification,https://docs.influxdata.com/influxdb/v2/security/
 InfluxDB,database,No authentication (pre-2.0),:8086/query?q=SHOW+DATABASES,HIGH,Time-series database read/write,https://docs.influxdata.com/influxdb/v1/administration/authentication_and_authorization/
-JFrog Artifactory,ci-cd,Default admin:password credentials,/artifactory/api/system/ping,HIGH,Full repository control and artifact poisoning,https://jfrog.com/help/r/jfrog-installation-setup-documentation/first-steps-after-installation
 Jaeger UI,observability,Tracing UI exposed without auth,/api/services,MEDIUM,Internal trace data and request path disclosure,https://www.jaegertracing.io/docs/latest/deployment/
 Jamf Pro,mdm,Default jamfadmin:jamf1234 credentials,/api/v1/auth,HIGH,MDM takeover and device data exposure,https://learn.jamf.com/en-US/bundle/jamf-pro-documentation
+Jenkins,ci-cd,Unauthenticated access to job configs,/api/json?tree=jobs[name],HIGH,Build config and credential enumeration,https://www.jenkins.io/doc/book/security/
 Jenkins,ci-cd,Script Console without authentication,/script,CRITICAL,Remote Code Execution via Groovy,https://www.jenkins.io/doc/book/managing/script-console/
 Jenkins,ci-cd,Signup enabled,/signup,MEDIUM,Unauthorized account creation,https://www.jenkins.io/doc/book/security/
-Jenkins,ci-cd,Unauthenticated access to job configs,/api/json?tree=jobs[name],HIGH,Build config and credential enumeration,https://www.jenkins.io/doc/book/security/
+JFrog Artifactory,ci-cd,Default admin:password credentials,/artifactory/api/system/ping,HIGH,Full repository control and artifact poisoning,https://jfrog.com/help/r/jfrog-installation-setup-documentation/first-steps-after-installation
 Jira,cms,Dashboard accessible without auth,/secure/Dashboard.jspa,MEDIUM,Project and issue disclosure,https://confluence.atlassian.com/jirasoftwareserver/
 Jira,cms,User picker accessible,/rest/api/2/user/picker?query=admin,MEDIUM,Username enumeration,https://developer.atlassian.com/server/jira/platform/rest-apis/
 Joomla,cms,Debug mode enabled,check response headers,LOW,Path and query disclosure,https://docs.joomla.org/Joomla_3.x_debug
@@ -109,18 +111,17 @@ Keycloak,identity,Default admin:admin master realm credentials,/auth/admin/,CRIT
 Keycloak,web-framework,Admin console exposed,/admin/,MEDIUM,Identity provider admin access,https://www.keycloak.org/docs/latest/server_admin/
 Kibana,monitoring,No authentication (pre-8.0),/app/kibana,HIGH,Log data and index pattern access,https://www.elastic.co/guide/en/kibana/current/kibana-authentication.html
 Kong Admin API,gateway,Admin API exposed on 8001 without auth,/status,CRITICAL,Gateway configuration takeover,https://docs.konghq.com/gateway/latest/production/access-control/start-securing-admin-api/
-Kubernetes Dashboard,container,Exposed without authentication,/api/v1/login,CRITICAL,Full cluster control,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-Kubernetes Kubelet,container,Read-only port 10255 exposed,/metrics,HIGH,Pod metadata and container discovery,https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/
-Kubernetes,container,API server anonymous auth enabled,:6443/api/v1/namespaces,CRITICAL,Cluster resource access,https://kubernetes.io/docs/reference/access-authn-authz/authentication/
-Kubernetes,container,Dashboard without authentication,/api/v1/namespaces/kubernetes-dashboard,CRITICAL,Full cluster management,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 Kubernetes,container,Kubelet read-only port exposed,:10255/pods,HIGH,Pod info and secrets disclosure,https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
 Kubernetes,container,Service account tokens mounted by default,/var/run/secrets/kubernetes.io/,HIGH,Pod identity theft,https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 Kubernetes,container,etcd exposed without auth,:2379/version,CRITICAL,All cluster secrets accessible,https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
+Kubernetes,container,API server anonymous auth enabled,:6443/api/v1/namespaces,CRITICAL,Cluster resource access,https://kubernetes.io/docs/reference/access-authn-authz/authentication/
+Kubernetes,container,Dashboard without authentication,/api/v1/namespaces/kubernetes-dashboard,CRITICAL,Full cluster management,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+Kubernetes Dashboard,container,Exposed without authentication,/api/v1/login,CRITICAL,Full cluster control,https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+Kubernetes Kubelet,container,Read-only port 10255 exposed,/metrics,HIGH,Pod metadata and container discovery,https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/
 Laravel,web-framework,Debug mode enabled in production,/.env or trigger error,HIGH,Database credentials and APP_KEY leak,https://laravel.com/docs/10.x/configuration
 Laravel,web-framework,Telescope debug dashboard exposed,/telescope,HIGH,Request data and logged queries,https://laravel.com/docs/10.x/telescope
 LibreNMS,monitoring,Default admin:librenms credentials,/login,HIGH,Network inventory and credential disclosure,https://docs.librenms.org/Installation/
 Logstash,observability,Monitoring API exposed without auth,/_node/stats,MEDIUM,Pipeline configuration and credential disclosure,https://www.elastic.co/guide/en/logstash/current/monitoring-logstash.html
-MLflow,data-science,Tracking server exposed without auth,/api/2.0/mlflow/experiments/list,HIGH,Model and artifact theft or poisoning,https://mlflow.org/docs/latest/auth/index.html
 Mattermost,communication,Setup wizard accessible post-install,/setup/wizard,HIGH,Admin account creation and team takeover,https://docs.mattermost.com/install/configure-hostname.html
 Memcached,database,No authentication by default,echo stats | nc host 11211,HIGH,Cache data read/write,https://memcached.org/about
 Memcached,database,UDP reflection enabled,echo stats | nc -u host 11211,CRITICAL,DDoS amplification and data leak,https://memcached.org/about
@@ -128,12 +129,13 @@ Metabase,bi,Default setup not completed,/api/session/properties,HIGH,Database co
 Microsoft Exchange,mail,Autodiscover credential leak,/autodiscover/autodiscover.xml,HIGH,Email credential interception,https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/autodiscover-for-exchange
 MinIO,cloud,Default credentials (minioadmin/minioadmin),/login,HIGH,Object storage admin access,https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html
 MinIO,storage,Default minioadmin:minioadmin credentials,/minio/health/live,HIGH,Object storage takeover,https://min.io/docs/minio/linux/operations/server-side-encryption.html
-MongoDB Express,database,Default admin:pass credentials,/db/admin,HIGH,MongoDB database browsing and modification,https://github.com/mongo-express/mongo-express
+MLflow,data-science,Tracking server exposed without auth,/api/2.0/mlflow/experiments/list,HIGH,Model and artifact theft or poisoning,https://mlflow.org/docs/latest/auth/index.html
 MongoDB,database,No authentication bound to 0.0.0.0,mongo --host target,CRITICAL,Full database read/write/drop,https://www.mongodb.com/docs/manual/administration/security-checklist/
+MongoDB Express,database,Default admin:pass credentials,/db/admin,HIGH,MongoDB database browsing and modification,https://github.com/mongo-express/mongo-express
 Moodle,lms,Install page accessible post-setup,/install.php,HIGH,Configuration overwrite and RCE,https://docs.moodle.org/en/Installation_quick_guide
 MySQL,database,Root without password on localhost,mysql -u root,HIGH,Full database access,https://dev.mysql.com/doc/refman/8.0/en/default-privileges.html
-Nagios XI,monitoring,Default nagiosadmin:nagiosxi credentials,/nagiosxi/,HIGH,Monitoring takeover and command execution,https://www.nagios.com/products/security/
 Nagios,monitoring,Default credentials (nagiosadmin/nagiosadmin),/nagios/,HIGH,Network monitoring data and command execution,https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/
+Nagios XI,monitoring,Default nagiosadmin:nagiosxi credentials,/nagiosxi/,HIGH,Monitoring takeover and command execution,https://www.nagios.com/products/security/
 Neo4j,database,Default credentials (neo4j/neo4j),:7474/browser/,HIGH,Graph database admin access,https://neo4j.com/docs/operations-manual/current/authentication-authorization/
 Nessus,vulnerability-scanner,Default admin:admin credentials,/server/status,HIGH,Scan result disclosure and credential theft,https://docs.tenable.com/nessus/Content/GetStarted.htm
 Netdata,monitoring,Dashboard exposed on public internet,/api/v1/info,LOW,Infrastructure metrics and fingerprinting,https://learn.netdata.cloud/docs/configuring/securing-netdata-agents
@@ -147,54 +149,57 @@ OpenTSDB,database,HTTP API exposed without auth,/api/version,MEDIUM,Metric data 
 OpenVPN,vpn-remote,Admin web interface exposed,:943/admin,MEDIUM,VPN configuration and user management,https://openvpn.net/vpn-server-resources/
 Oracle WebLogic,web-server,Console exposed,/console,HIGH,Admin access leads to RCE,https://docs.oracle.com/middleware/12213/wls/LOCKD/secure.htm
 Overcloud Horizon,cloud,Default admin password in undercloudrc,/auth/login/,HIGH,OpenStack deployment takeover,https://docs.openstack.org/horizon/latest/
-PHP,web-framework,phpinfo() page exposed,/phpinfo.php or /info.php,MEDIUM,Full server configuration disclosure,https://www.php.net/manual/en/function.phpinfo.php
 Pentaho BA,bi,Default admin:password credentials,/pentaho/Login,HIGH,BI dashboard and database credential disclosure,https://docs.hitachivantara.com/r/en-us/pentaho-business-analytics/
+pfSense,network,Default credentials (admin/pfsense),/,HIGH,Full firewall and network control,https://docs.netgate.com/pfsense/en/latest/
+pgAdmin,database,Web UI accessible without TLS,/login,MEDIUM,PostgreSQL credential interception,https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
+PHP,web-framework,phpinfo() page exposed,/phpinfo.php or /info.php,MEDIUM,Full server configuration disclosure,https://www.php.net/manual/en/function.phpinfo.php
+phpMyAdmin,database,Setup script accessible,/phpmyadmin/setup/,HIGH,Database configuration manipulation,https://www.phpmyadmin.net/
 Pi-hole,networking,Admin interface accessible without password,/admin/,MEDIUM,DNS manipulation and traffic redirection,https://docs.pi-hole.net/main/post-install/
 Plex Media Server,media,Web UI exposed without claim token,/web/index.html,MEDIUM,Media library takeover and token theft,https://support.plex.tv/articles/201105343/
-Portainer,container,Admin not configured on first boot,/api/users/admin/check,CRITICAL,Container platform takeover,https://docs.portainer.io/start/install-ce/server/docker/linux
 Portainer,container,Initial admin setup without restriction,:9000/,HIGH,Container management access if claimed first,https://docs.portainer.io/start/install-ce
+Portainer,container,Admin not configured on first boot,/api/users/admin/check,CRITICAL,Container platform takeover,https://docs.portainer.io/start/install-ce/server/docker/linux
 PostgreSQL,database,Trust authentication for local connections,psql -U postgres,HIGH,Database access without password,https://www.postgresql.org/docs/current/auth-trust.html
 PowerDNS,networking,API exposed without auth,/api/v1/servers,HIGH,DNS zone modification,https://doc.powerdns.com/authoritative/http-api/index.html
+Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 Prometheus,monitoring,Metrics endpoint exposed on public internet,/metrics,LOW,Infrastructure fingerprinting and metric exposure,https://prometheus.io/docs/operating/security/
 Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Internal metrics and target disclosure,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
-Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 Proxmox VE,virtualization,Default root login over TLS,/api2/json/version,HIGH,Hypervisor takeover,https://pve.proxmox.com/wiki/User_Management
 Puppet Server,configuration-management,CA API exposed without auth,/puppet-ca/v1/certificate_statuses/any,MEDIUM,Certificate enumeration and signing requests,https://puppet.com/docs/puppet/latest/server/configuration.html
-RStudio Server,data-science,Default login page without TLS,/auth-sign-in,MEDIUM,R workspace credential interception,https://docs.posit.co/ide/server-pro/getting_started/installation.html
 RabbitMQ,database,Management UI with default guest/guest,:15672/,HIGH,Message queue admin access,https://www.rabbitmq.com/access-control.html
 Rancher,container,Default admin:admin setup page,/dashboard/auth/login,CRITICAL,Multi-cluster takeover,https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade
 Redash,bi,Setup page accessible post-install,/setup,HIGH,Admin creation and datasource credential disclosure,https://redash.io/help/open-source/dev-guide/docker
-Redis Commander,database,Exposed web UI without auth,/apiv2/connections,HIGH,Redis data browsing and modification,https://github.com/joeferner/redis-commander
 Redis,database,No password bound to 0.0.0.0,:6379 INFO command,CRITICAL,Data theft and potential RCE via modules,https://redis.io/docs/management/security/
+Redis Commander,database,Exposed web UI without auth,/apiv2/connections,HIGH,Redis data browsing and modification,https://github.com/joeferner/redis-commander
 RethinkDB,database,Admin UI exposed without auth,/,HIGH,Database browsing and modification,https://rethinkdb.com/docs/security/
 Rocket.Chat,communication,Setup wizard accessible post-install,/setup-wizard,HIGH,Admin account creation and workspace takeover,https://docs.rocket.chat/docs/deploy
 Roundcube,mail,Installer script accessible,/installer/,HIGH,Webmail config manipulation,https://github.com/roundcube/roundcubemail/wiki/Installation
+RStudio Server,data-science,Default login page without TLS,/auth-sign-in,MEDIUM,R workspace credential interception,https://docs.posit.co/ide/server-pro/getting_started/installation.html
 Ruby on Rails,web-framework,Debug exceptions in production,trigger error,HIGH,Source code and variable disclosure,https://guides.rubyonrails.org/configuring.html
 Rundeck,automation,Default admin:admin credentials,/user/login,HIGH,Job execution and credential theft,https://docs.rundeck.com/docs/administration/security/authenticating-users.html
-SNMP,network,Default community string (public),snmpwalk -v2c -c public host,HIGH,Device configuration and network data read,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/
 SaltStack,configuration-management,Salt API exposed without auth,/run,CRITICAL,Master-level command execution across minions,https://docs.saltproject.io/en/latest/topics/netapi/index.html
 Samba,network,Null session share enumeration,smbclient -L //target -N,MEDIUM,Share and user enumeration,https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
 Seafile,storage,Setup wizard accessible post-install,/accounts/login/,HIGH,Admin takeover and file access,https://manual.seafile.com/12.0/setup/
+SNMP,network,Default community string (public),snmpwalk -v2c -c public host,HIGH,Device configuration and network data read,https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/
 SonarQube,ci-cd,Default admin credentials (admin/admin),/sessions/new,HIGH,Source code analysis data access,https://docs.sonarqube.org/latest/instance-administration/security/
 Sonatype Nexus,ci-cd,Default admin:admin123 credentials,/service/rest/v1/status,HIGH,Artifact repository takeover,https://help.sonatype.com/repomanager3/installation-and-upgrades/configuring-the-runtime-environment
 Splunk,observability,Default admin:changeme credentials,/en-US/account/login,CRITICAL,Log data access and potential RCE,https://docs.splunk.com/Documentation/Splunk/latest/Admin/Listofdefaultpasswords
-Spring Boot,web-framework,Actuator env endpoint exposed,/actuator/env,HIGH,Database credentials and config leak,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,Actuator heapdump endpoint,/actuator/heapdump,CRITICAL,Memory dump with credentials and secrets,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,Actuator mappings exposed,/actuator/mappings,MEDIUM,All endpoint and route disclosure,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,H2 Console enabled,/h2-console,CRITICAL,Database access and potential RCE,https://docs.spring.io/spring-boot/docs/current/reference/html/
+Spring Boot,web-framework,Actuator env endpoint exposed,/actuator/env,HIGH,Database credentials and config leak,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Struts2,web-framework,DevMode enabled,trigger error page,CRITICAL,OGNL injection and RCE,https://struts.apache.org/security/
 Swagger UI,web-framework,API documentation publicly accessible,/swagger-ui.html or /api-docs,MEDIUM,Full API endpoint enumeration,https://swagger.io/tools/swagger-ui/
 Symfony,web-framework,Profiler enabled in production,/_profiler/,HIGH,Request data and credentials in logs,https://symfony.com/doc/current/profiler.html
 Syncthing,storage,Web UI exposed on public interface,/rest/system/status,MEDIUM,Folder sync configuration exposure,https://docs.syncthing.net/users/guiapi.html
 TeamCity,ci-cd,Setup page accessible post-install,/setupAdmin.html,HIGH,Admin creation and pipeline takeover,https://www.jetbrains.com/help/teamcity/
 Terraform,ci-cd,State file with secrets stored unencrypted,terraform.tfstate,CRITICAL,Cloud credentials and infrastructure secrets,https://developer.hashicorp.com/terraform/language/state/sensitive-data
-Traefik,gateway,Dashboard exposed without auth,/dashboard/,MEDIUM,Routing configuration disclosure,https://doc.traefik.io/traefik/operations/dashboard/
 Traefik,network,Dashboard exposed without auth,/dashboard/ or :8080/,MEDIUM,Backend routing and service discovery,https://doc.traefik.io/traefik/operations/dashboard/
+Traefik,gateway,Dashboard exposed without auth,/dashboard/,MEDIUM,Routing configuration disclosure,https://doc.traefik.io/traefik/operations/dashboard/
 Uptime Kuma,monitoring,Setup page accessible post-install,/setup,MEDIUM,Admin account creation,https://github.com/louislam/uptime-kuma
+Vault (HashiCorp),secrets,Server running in dev mode,/v1/sys/seal-status,CRITICAL,In-memory secrets disclosure,https://developer.hashicorp.com/vault/docs/concepts/dev-server
+Vault (HashiCorp),ci-cd,Unauthenticated health endpoint,/v1/sys/health,LOW,Sealed/unsealed status disclosure,https://developer.hashicorp.com/vault/api-docs/system/health
 VMware ESXi,cloud,MOB interface accessible,/mob/,HIGH,Virtual machine management,https://docs.vmware.com/en/VMware-vSphere/
 VMware vCenter,cloud,Default CEIP data exposure,/ui/,MEDIUM,Infrastructure version disclosure,https://docs.vmware.com/en/VMware-vSphere/
-Vault (HashiCorp),ci-cd,Unauthenticated health endpoint,/v1/sys/health,LOW,Sealed/unsealed status disclosure,https://developer.hashicorp.com/vault/api-docs/system/health
-Vault (HashiCorp),secrets,Server running in dev mode,/v1/sys/seal-status,CRITICAL,In-memory secrets disclosure,https://developer.hashicorp.com/vault/docs/concepts/dev-server
 WordPress,cms,Debug log accessible,/wp-content/debug.log,HIGH,Error details with file paths and queries,https://wordpress.org/documentation/article/debugging-in-wordpress/
 WordPress,cms,Readme version disclosure,/readme.html,LOW,WordPress version fingerprinting,https://wordpress.org/
 WordPress,cms,User enumeration via REST API,/wp-json/wp/v2/users,MEDIUM,Username disclosure,https://developer.wordpress.org/rest-api/reference/users/
@@ -203,8 +208,3 @@ WordPress,cms,XML-RPC enabled,/xmlrpc.php,MEDIUM,Brute force amplification and p
 Zabbix,monitoring,Default Admin/zabbix credentials,/zabbix/,HIGH,Network monitoring access and script execution,https://www.zabbix.com/documentation/current/en/manual/quickstart/login
 Zammad,ticketing,Setup wizard accessible post-install,/getting_started,HIGH,Admin account creation and ticket data access,https://admin-docs.zammad.org/en/latest/install/index.html
 Zulip,communication,Server exposed without auth backend configured,/api/v1/server_settings,MEDIUM,Organization metadata disclosure,https://zulip.readthedocs.io/en/stable/production/install.html
-etcd,container,API exposed without authentication,:2379/v2/keys/,CRITICAL,Kubernetes secrets and cluster config theft,https://etcd.io/docs/v3.5/op-guide/security/
-pfSense,network,Default credentials (admin/pfsense),/,HIGH,Full firewall and network control,https://docs.netgate.com/pfsense/en/latest/
-pgAdmin,database,Web UI accessible without TLS,/login,MEDIUM,PostgreSQL credential interception,https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
-phpMyAdmin,database,Setup script accessible,/phpmyadmin/setup/,HIGH,Database configuration manipulation,https://www.phpmyadmin.net/
-product,category,misconfiguration,check,severity,impact,reference
