@@ -179,6 +179,7 @@ PowerDNS,networking,API exposed without auth,/api/v1/servers,HIGH,DNS zone modif
 Prometheus,monitoring,Metrics endpoint exposed on public internet,/metrics,LOW,Infrastructure fingerprinting and metric exposure,https://prometheus.io/docs/operating/security/
 Prometheus,monitoring,No authentication on metrics endpoint,/metrics,MEDIUM,Internal metrics and target disclosure,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 Prometheus,monitoring,Targets endpoint exposed,/targets,MEDIUM,Internal infrastructure mapping,https://prometheus.io/docs/prometheus/latest/configuration/configuration/
+Prometheus Node Exporter,monitoring,Node exporter exposed on public interface,:9100/metrics,MEDIUM,Host OS and hardware fingerprint disclosure,https://github.com/prometheus/node_exporter
 Proxmox VE,virtualization,Default root login over TLS,/api2/json/version,HIGH,Hypervisor takeover,https://pve.proxmox.com/wiki/User_Management
 Puppet Server,configuration-management,CA API exposed without auth,/puppet-ca/v1/certificate_statuses/any,MEDIUM,Certificate enumeration and signing requests,https://puppet.com/docs/puppet/latest/server/configuration.html
 RabbitMQ,database,Management UI with default guest/guest,:15672/,HIGH,Message queue admin access,https://www.rabbitmq.com/access-control.html
@@ -201,32 +202,32 @@ SNMP,network,Default community string (public),snmpwalk -v2c -c public host,HIGH
 SonarQube,ci-cd,Default admin credentials (admin/admin),/sessions/new,HIGH,Source code analysis data access,https://docs.sonarqube.org/latest/instance-administration/security/
 Sonatype Nexus,ci-cd,Default admin:admin123 credentials,/service/rest/v1/status,HIGH,Artifact repository takeover,https://help.sonatype.com/repomanager3/installation-and-upgrades/configuring-the-runtime-environment
 Splunk,observability,Default admin:changeme credentials,/en-US/account/login,CRITICAL,Log data access and potential RCE,https://docs.splunk.com/Documentation/Splunk/latest/Admin/Listofdefaultpasswords
-Spring Boot,web-framework,H2 Console enabled,/h2-console,CRITICAL,Database access and potential RCE,https://docs.spring.io/spring-boot/docs/current/reference/html/
 Spring Boot,web-framework,Actuator env endpoint exposed,/actuator/env,HIGH,Database credentials and config leak,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,Actuator heapdump endpoint,/actuator/heapdump,CRITICAL,Memory dump with credentials and secrets,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 Spring Boot,web-framework,Actuator mappings exposed,/actuator/mappings,MEDIUM,All endpoint and route disclosure,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
+Spring Boot,web-framework,H2 Console enabled,/h2-console,CRITICAL,Database access and potential RCE,https://docs.spring.io/spring-boot/docs/current/reference/html/
 Struts2,web-framework,DevMode enabled,trigger error page,CRITICAL,OGNL injection and RCE,https://struts.apache.org/security/
 Swagger UI,web-framework,API documentation publicly accessible,/swagger-ui.html or /api-docs,MEDIUM,Full API endpoint enumeration,https://swagger.io/tools/swagger-ui/
 Symfony,web-framework,Profiler enabled in production,/_profiler/,HIGH,Request data and credentials in logs,https://symfony.com/doc/current/profiler.html
 Syncthing,storage,Web UI exposed on public interface,/rest/system/status,MEDIUM,Folder sync configuration exposure,https://docs.syncthing.net/users/guiapi.html
 TeamCity,ci-cd,Setup page accessible post-install,/setupAdmin.html,HIGH,Admin creation and pipeline takeover,https://www.jetbrains.com/help/teamcity/
 Terraform,ci-cd,State file with secrets stored unencrypted,terraform.tfstate,CRITICAL,Cloud credentials and infrastructure secrets,https://developer.hashicorp.com/terraform/language/state/sensitive-data
-Traefik,network,Dashboard exposed without auth,/dashboard/ or :8080/,MEDIUM,Backend routing and service discovery,https://doc.traefik.io/traefik/operations/dashboard/
 Traefik,gateway,Dashboard exposed without auth,/dashboard/,MEDIUM,Routing configuration disclosure,https://doc.traefik.io/traefik/operations/dashboard/
+Traefik,network,Dashboard exposed without auth,/dashboard/ or :8080/,MEDIUM,Backend routing and service discovery,https://doc.traefik.io/traefik/operations/dashboard/
 Traefik Dashboard,network,Dashboard exposed in insecure mode,/dashboard/#/,HIGH,Route configuration disclosure and backend enumeration,https://doc.traefik.io/traefik/operations/dashboard/
 Trilium Notes,web-framework,Setup wizard callable after deployment,/setup,HIGH,Admin re-initialization and note database takeover,https://github.com/zadam/trilium/wiki/Authentication
 Uptime Kuma,monitoring,Setup page accessible post-install,/setup,MEDIUM,Admin account creation,https://github.com/louislam/uptime-kuma
-Vault (HashiCorp),secrets,Server running in dev mode,/v1/sys/seal-status,CRITICAL,In-memory secrets disclosure,https://developer.hashicorp.com/vault/docs/concepts/dev-server
 Vault (HashiCorp),ci-cd,Unauthenticated health endpoint,/v1/sys/health,LOW,Sealed/unsealed status disclosure,https://developer.hashicorp.com/vault/api-docs/system/health
+Vault (HashiCorp),secrets,Server running in dev mode,/v1/sys/seal-status,CRITICAL,In-memory secrets disclosure,https://developer.hashicorp.com/vault/docs/concepts/dev-server
 Vaultwarden,secrets-management,Admin panel enabled without token,/admin,CRITICAL,Full password vault takeover,https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page
 VMware ESXi,cloud,MOB interface accessible,/mob/,HIGH,Virtual machine management,https://docs.vmware.com/en/VMware-vSphere/
 VMware vCenter,cloud,Default CEIP data exposure,/ui/,MEDIUM,Infrastructure version disclosure,https://docs.vmware.com/en/VMware-vSphere/
-WordPress,cms,Readme version disclosure,/readme.html,LOW,WordPress version fingerprinting,https://wordpress.org/
 WordPress,cms,User enumeration via REST API,/wp-json/wp/v2/users,MEDIUM,Username disclosure,https://developer.wordpress.org/rest-api/reference/users/
 WordPress,cms,WP-Cron exposed,/wp-cron.php,LOW,DoS and timing attacks,https://developer.wordpress.org/plugins/cron/
 WordPress,cms,XML-RPC enabled,/xmlrpc.php,MEDIUM,Brute force amplification and pingback DDoS,https://developer.wordpress.org/plugins/security/
 WordPress,cms,Debug log accessible,/wp-content/debug.log,HIGH,Error details with file paths and queries,https://wordpress.org/documentation/article/debugging-in-wordpress/
-Zabbix,monitoring,Default Admin/zabbix credentials,/zabbix/,HIGH,Network monitoring access and script execution,https://www.zabbix.com/documentation/current/en/manual/quickstart/login
+WordPress,cms,Readme version disclosure,/readme.html,LOW,WordPress version fingerprinting,https://wordpress.org/
 Zabbix,monitoring,Default Admin/zabbix credentials active,/zabbix.php?action=dashboard.view,HIGH,Monitoring host takeover and internal network recon,https://www.zabbix.com/documentation/current/en/manual/web_interface/frontend_sections/administration/authentication
+Zabbix,monitoring,Default Admin/zabbix credentials,/zabbix/,HIGH,Network monitoring access and script execution,https://www.zabbix.com/documentation/current/en/manual/quickstart/login
 Zammad,ticketing,Setup wizard accessible post-install,/getting_started,HIGH,Admin account creation and ticket data access,https://admin-docs.zammad.org/en/latest/install/index.html
 Zulip,communication,Server exposed without auth backend configured,/api/v1/server_settings,MEDIUM,Organization metadata disclosure,https://zulip.readthedocs.io/en/stable/production/install.html
