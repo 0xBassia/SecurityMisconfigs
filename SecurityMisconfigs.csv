@@ -216,14 +216,15 @@ Traefik Dashboard,network,Dashboard exposed in insecure mode,/dashboard/#/,HIGH,
 Uptime Kuma,monitoring,Setup page accessible post-install,/setup,MEDIUM,Admin account creation,https://github.com/louislam/uptime-kuma
 Vault (HashiCorp),secrets,Server running in dev mode,/v1/sys/seal-status,CRITICAL,In-memory secrets disclosure,https://developer.hashicorp.com/vault/docs/concepts/dev-server
 Vault (HashiCorp),ci-cd,Unauthenticated health endpoint,/v1/sys/health,LOW,Sealed/unsealed status disclosure,https://developer.hashicorp.com/vault/api-docs/system/health
+Vaultwarden,secrets-management,Admin panel enabled without token,/admin,CRITICAL,Full password vault takeover,https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page
 VMware ESXi,cloud,MOB interface accessible,/mob/,HIGH,Virtual machine management,https://docs.vmware.com/en/VMware-vSphere/
 VMware vCenter,cloud,Default CEIP data exposure,/ui/,MEDIUM,Infrastructure version disclosure,https://docs.vmware.com/en/VMware-vSphere/
-WordPress,cms,WP-Cron exposed,/wp-cron.php,LOW,DoS and timing attacks,https://developer.wordpress.org/plugins/cron/
 WordPress,cms,XML-RPC enabled,/xmlrpc.php,MEDIUM,Brute force amplification and pingback DDoS,https://developer.wordpress.org/plugins/security/
 WordPress,cms,Debug log accessible,/wp-content/debug.log,HIGH,Error details with file paths and queries,https://wordpress.org/documentation/article/debugging-in-wordpress/
 WordPress,cms,Readme version disclosure,/readme.html,LOW,WordPress version fingerprinting,https://wordpress.org/
 WordPress,cms,User enumeration via REST API,/wp-json/wp/v2/users,MEDIUM,Username disclosure,https://developer.wordpress.org/rest-api/reference/users/
-Zabbix,monitoring,Default Admin/zabbix credentials active,/zabbix.php?action=dashboard.view,HIGH,Monitoring host takeover and internal network recon,https://www.zabbix.com/documentation/current/en/manual/web_interface/frontend_sections/administration/authentication
+WordPress,cms,WP-Cron exposed,/wp-cron.php,LOW,DoS and timing attacks,https://developer.wordpress.org/plugins/cron/
 Zabbix,monitoring,Default Admin/zabbix credentials,/zabbix/,HIGH,Network monitoring access and script execution,https://www.zabbix.com/documentation/current/en/manual/quickstart/login
+Zabbix,monitoring,Default Admin/zabbix credentials active,/zabbix.php?action=dashboard.view,HIGH,Monitoring host takeover and internal network recon,https://www.zabbix.com/documentation/current/en/manual/web_interface/frontend_sections/administration/authentication
 Zammad,ticketing,Setup wizard accessible post-install,/getting_started,HIGH,Admin account creation and ticket data access,https://admin-docs.zammad.org/en/latest/install/index.html
 Zulip,communication,Server exposed without auth backend configured,/api/v1/server_settings,MEDIUM,Organization metadata disclosure,https://zulip.readthedocs.io/en/stable/production/install.html
